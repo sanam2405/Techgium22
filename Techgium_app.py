@@ -14,7 +14,7 @@ import numpy as np
 #Loading Models
 
 def load_prediciton_model(model_file):
-    loaded_model joblib.load(open(os.path.join(model_file),"rb"))
+    loaded_model = joblib.load(open(os.path.join(model_file),"rb"))
     return loaded_model
 
 
