@@ -21,13 +21,13 @@ scaler = pickle.load(open('standardized_data.pkl','rb'))
 
 def glucose_prediction(input_data):
     
-    input_data_as_npArray = np.asarray(input_data)
+    input_data_as_npArray = np.array(input_data)
     
     input_data_reshaped = input_data_as_npArray.reshape(-1,1)
     
     prediction = loaded_model.predict(input_data_reshaped)
     
-    return prediction[0]
+    return prediction[0][0]
 
 
 def main():
@@ -42,15 +42,15 @@ def main():
     
     #Code for prediction
     
-    diagnosis = ''
     
     if st.button("Predict"):
         
         diagnosis = glucose_prediction(VoltageLevel)
         
     st.success(diagnosis)
+    
         
         
 
 if __name__ == '__main__':
-    main()
+        main()
