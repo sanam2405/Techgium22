@@ -19,17 +19,15 @@ scaler = StandardScaler()
 loaded_model = pickle.load(open('trained_model.sav','rb'))
 scaler = pickle.load(open('standardized_data.pkl','rb'))
 
-def glocuse_prediction(input_data):
+def glucose_prediction(input_data):
     
     input_data_as_npArray = np.asarray(input_data)
     
-    input_data_reshaped = input_data_as_npArray.reshape(1,-1)
+    input_data_reshaped = input_data_as_npArray.reshape(-1,1)
     
-    std_data = scaler.transform(input_data_reshaped)
+    prediction = loaded_model.predict(input_data_reshaped)
     
-    prediction = loaded_model.predict(std_data)
-    
-    return prediction
+    return prediction[0]
 
 
 def main():
