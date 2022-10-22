@@ -48,7 +48,7 @@ def main():
     
     if st.button("Predict"):
         
-        diagnosis = glucose_prediction((VoltageLevel))
+        diagnosis = glucose_prediction(VoltageLevel)
         
     st.success(diagnosis)
         
